@@ -116,7 +116,6 @@
     "vitest-mock-extended": "3.1.0"
   },
   "resolutions": {
-    "@sentry/nextjs": "portal:./stubs/sentry-nextjs",
     "@trigger.dev/sdk": "portal:./stubs/trigger-sdk",
     "@trigger.dev/build": "portal:./stubs/trigger-build",
     "webpack": "5.104.1",
