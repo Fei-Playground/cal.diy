@@ -3,10 +3,15 @@ import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
 import logger from "@calcom/lib/logger";
 import { safeStringify } from "@calcom/lib/safeStringify";
 import prisma from "@calcom/prisma";
+import { mockSession } from "@calcom/prisma/mock-fixtures";
 import { LRUCache } from "lru-cache";
 import type { GetServerSidePropsContext, NextApiRequest } from "next";
 import type { AuthOptions, Session } from "next-auth";
 import { getToken } from "next-auth/jwt";
+
+// DB-less preview mode: when MOCK_DB=1, return a fixed authenticated session
+// so pages render instead of redirecting to /auth/login.
+const MOCK_DB = process.env.MOCK_DB === "1" || process.env.MOCK_DB === "true";
 
 class LicenseKeySingleton {
   static async getInstance(..._args: unknown[]) { return new LicenseKeySingleton(); }
@@ -40,6 +45,10 @@ export async function getServerSession(options: {
   req: NextApiRequest | GetServerSidePropsContext["req"];
   authOptions?: AuthOptions;
 }) {
+  if (MOCK_DB) {
+    return mockSession as unknown as Session;
+  }
+
   const { req, authOptions: { secret } = {} } = options;
 
   const token = await getToken({

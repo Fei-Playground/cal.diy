@@ -232,6 +232,9 @@ const nextConfig = (phase: string): NextConfig => {
       "formidable",
       "@boxyhq/saml-jackson",
       "jose",
+      // DB-less preview mode (MOCK_DB=1): keep prismock unbundled so its
+      // internal prisma-schema-wasm path resolves from node_modules at runtime.
+      "prismock",
     ],
     experimental: {
       optimizePackageImports: ["@calcom/ui"],
