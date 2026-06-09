@@ -204,7 +204,7 @@ export function Card({
       {variant === "SidebarCard" && mediaLink && (
         <a
           onClick={mediaLinkOnClick}
-          target="_blank"
+          target="_self"
           rel="noreferrer noopener"
           href={mediaLink}
           data-testid={actionButton?.["data-testid"]}
@@ -256,7 +256,7 @@ export function Card({
               {learnMore.href ? (
                 <LinkComponent
                   href={learnMore.href}
-                  target="_blank"
+                  target="_self"
                   rel="noreferrer"
                   onClick={learnMore.onClick}
                   className={classNames("text-default text-xs font-medium cursor-pointer", buttonClassName)}>

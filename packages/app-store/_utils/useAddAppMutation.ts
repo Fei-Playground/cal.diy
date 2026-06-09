@@ -8,7 +8,7 @@ import type { App } from "@calcom/types/App";
 
 function gotoUrl(url: string, newTab?: boolean) {
   if (newTab) {
-    window.open(url, "_blank");
+    window.open(url, "_self");
     return;
   }
   window.location.href = url;

@@ -27,7 +27,7 @@ export const LearnMoreLink = ({ t, i18nKey, href }: LearnMoreLinkProps) => {
           <Link
             key={i18nKey}
             className="underline underline-offset-2"
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
             href={href}>
             Learn more

@@ -98,7 +98,7 @@ export function WelcomeToCalcomModal() {
           <Button
             color="minimal"
             href="https://cal.diy"
-            target="_blank"
+            target="_self"
             EndIcon="external-link"
             className="pointer-events-none opacity-0">
             {t("learn_more")}

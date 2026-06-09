@@ -191,7 +191,7 @@ export default function Verify({ EMAIL_FROM }: { EMAIL_FROM?: string }) {
                   ? encodeURIComponent(`https://mail.google.com/mail/u/0/#search/from:${EMAIL_FROM}`)
                   : "https://mail.google.com/mail/u/0/"
               }
-              target="_blank"
+              target="_self"
               EndIcon="external-link">
               {t("open_in_gmail")}
             </Button>

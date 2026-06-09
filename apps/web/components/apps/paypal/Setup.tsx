@@ -101,7 +101,7 @@ export default function PayPalSetup() {
               <p className="text-default mb-2 mt-5 font-bold">Resources:</p>
               <a
                 className="text-orange-600 underline"
-                target="_blank"
+                target="_self"
                 href="https://developer.paypal.com/api/rest/#link-getclientidandclientsecret"
                 rel="noreferrer">
                 Link to Paypal developer API REST Setup Guide:
@@ -120,7 +120,7 @@ export default function PayPalSetup() {
                 <li>
                   Log into your PayPal Developer account and create a new app{" "}
                   <a
-                    target="_blank"
+                    target="_self"
                     href="https://developer.paypal.com/dashboard/applications/live"
                     className="text-orange-600 underline"
                     rel="noreferrer">

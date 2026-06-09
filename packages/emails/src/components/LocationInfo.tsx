@@ -33,7 +33,7 @@ export function LocationInfo(props: { calEvent: CalendarEvent; t: TFunction }) {
         description={
           <a
             href={meetingUrl}
-            target="_blank"
+            target="_self"
             title={t("meeting_url")}
             style={{ color: "#101010" }}
             rel="noreferrer">

@@ -302,7 +302,7 @@ export const MultiplePrivateLinksController = ({
                               StartIcon="external-link"
                               data-testid="private-link-preview"
                               href={singleUseURL}
-                              target="_blank"
+                              target="_self"
                               rel="noreferrer"
                             />
                           </Tooltip>

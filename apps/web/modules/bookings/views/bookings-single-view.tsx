@@ -972,7 +972,7 @@ export default function Success(props: PageProps) {
                               <Link
                                 href={googleCalendarLink}
                                 className="text-default border-subtle h-10 w-10 rounded-sm border px-3 py-2 ltr:mr-2 rtl:ml-2"
-                                target="_blank">
+                                target="_self">
                                 <svg
                                   className="-mt-1.5 inline-block h-4 w-4"
                                   fill="currentColor"
@@ -987,7 +987,7 @@ export default function Success(props: PageProps) {
                               <Link
                                 href={microsoftOutlookLink}
                                 className="border-subtle text-default mx-2 h-10 w-10 rounded-sm border px-3 py-2"
-                                target="_blank">
+                                target="_self">
                                 <svg
                                   className="-mt-1.5 mr-1 inline-block h-4 w-4"
                                   fill="currentColor"
@@ -1002,7 +1002,7 @@ export default function Success(props: PageProps) {
                               <Link
                                 href={microsoftOfficeLink}
                                 className="text-default border-subtle mx-2 h-10 w-10 rounded-sm border px-3 py-2"
-                                target="_blank">
+                                target="_self">
                                 <svg
                                   className="-mt-1.5 mr-1 inline-block h-4 w-4"
                                   fill="currentColor"
@@ -1142,7 +1142,7 @@ export default function Success(props: PageProps) {
                       <p className="font-semibold">{t("google_new_spam_policy")}</p>
                       <span className="underline">
                         <a
-                          target="_blank"
+                          target="_self"
                           href="https://cal.com/blog/google-s-new-spam-policy-may-be-affecting-your-invitations"
                           rel="noreferrer">
                           {t("resolve")}
@@ -1194,7 +1194,7 @@ const DisplayLocation = ({
   locationToDisplay.startsWith("http") ? (
     <a
       href={locationToDisplay}
-      target="_blank"
+      target="_self"
       title={locationToDisplay}
       className={classNames("text-default flex items-center gap-2", className)}
       rel="noreferrer">

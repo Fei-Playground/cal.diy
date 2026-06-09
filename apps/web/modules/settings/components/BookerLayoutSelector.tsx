@@ -235,7 +235,7 @@ const BookerLayoutFields = ({
             components={[
               <Link
                 key="appearance-link"
-                target="_blank"
+                target="_self"
                 href="/settings/my-account/appearance"
                 className="underline">
                 Appearance

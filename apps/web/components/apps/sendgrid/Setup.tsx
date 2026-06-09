@@ -51,7 +51,7 @@ export default function SendgridSetup() {
               <a
                 className="text-indigo-400"
                 href="https://app.sendgrid.com/settings/api_keys"
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer">
                 Sendgrid
               </a>

@@ -625,7 +625,7 @@ export const InfiniteEventTypeList = ({
                                   <Button
                                     data-testid="preview-link-button"
                                     color="secondary"
-                                    target="_blank"
+                                    target="_self"
                                     variant="icon"
                                     href={calLink}
                                     StartIcon="external-link"
@@ -754,7 +754,7 @@ export const InfiniteEventTypeList = ({
                               <DropdownMenuItem className="outline-none">
                                 <DropdownItem
                                   href={calLink}
-                                  target="_blank"
+                                  target="_self"
                                   StartIcon="external-link"
                                   className="w-full rounded-none">
                                   {t("preview")}

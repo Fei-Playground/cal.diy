@@ -177,7 +177,7 @@ export function UserDropdown({ small }: UserDropdownProps) {
             <MenuSeparator />
           </>
 
-          <MenuItem render={<a href={ROADMAP} target="_blank" rel="noreferrer" />}>
+          <MenuItem render={<a href={ROADMAP} target="_self" rel="noreferrer" />}>
             <MapIcon />
             {t("visit_roadmap")}
           </MenuItem>

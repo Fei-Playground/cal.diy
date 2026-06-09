@@ -77,7 +77,7 @@ export const BtcpayPaymentComponent = (props: IPaymentComponentProps) => {
   if (!parsedData.success || !parsedData.data?.invoice?.checkoutLink) return wrongUrl;
   const checkoutUrl = parsedData.data.invoice.checkoutLink;
   const handleOpenInNewTab = () => {
-    window.open(checkoutUrl, "_blank", "noopener,noreferrer");
+    window.open(checkoutUrl, "_self", "noopener,noreferrer");
   };
 
   return (

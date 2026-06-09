@@ -66,7 +66,7 @@ const VerticalTabItem = ({
             shallow={linkShallow}
             scroll={linkScroll}
             aria-disabled={props.disabled ? "true" : undefined}
-            target={props.isExternalLink ? "_blank" : "_self"}
+            target={props.isExternalLink ? "_self" : "_self"}
             className={classNames(
               props.textClassNames || "text-default text-sm font-medium leading-none",
               "hover:bg-subtle [&[aria-current='page']]:bg-subtle [&[aria-current='page']]:text-emphasis group-hover:text-default group flex w-full flex-row items-center rounded-md p-2 transition ",

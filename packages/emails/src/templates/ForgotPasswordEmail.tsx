@@ -37,7 +37,7 @@ export const ForgotPasswordEmail = (
             <a
               href={`mailto:${SUPPORT_MAIL_ADDRESS}`}
               style={{ color: "#3E3E3E" }}
-              target="_blank"
+              target="_self"
               rel="noreferrer">
               <>{props.language("contact_our_support_team")}</>
             </a>

@@ -60,7 +60,7 @@ export function NotFound({ host }: { host: string }) {
           {isSubpage ? (
             <span className="mt-2 inline-block text-lg">{t("check_spelling_mistakes_or_go_back")}</span>
           ) : IS_CALCOM ? (
-            <a target="_blank" href={url} className="mt-2 inline-block text-lg" rel="noreferrer">
+            <a target="_self" href={url} className="mt-2 inline-block text-lg" rel="noreferrer">
               {t(`404_the_${pageType.toLowerCase()}`)}{" "}
               {username ? (
                 <>
@@ -88,7 +88,7 @@ export function NotFound({ host }: { host: string }) {
               <li className="border-2 border-green-500 px-4 py-2">
                 <a
                   href={url}
-                  target="_blank"
+                  target="_self"
                   className="relative flex items-start space-x-4 py-6 rtl:space-x-reverse"
                   rel="noreferrer">
                   <div className="shrink-0">

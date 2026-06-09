@@ -143,7 +143,7 @@ describe("Navigation Components", () => {
         }
 
         if (tab.isExternalLink) {
-          await expect(tabElement).toHaveAttribute("target", "_blank");
+          await expect(tabElement).toHaveAttribute("target", "_self");
           expect(screen.getByTestId("external-link")).toBeInTheDocument();
         }
 

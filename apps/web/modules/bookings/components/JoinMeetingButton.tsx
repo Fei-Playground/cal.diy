@@ -47,7 +47,7 @@ export function JoinMeetingButton({
       color={color}
       size={size}
       href={locationToDisplay}
-      target="_blank"
+      target="_self"
       rel="noopener noreferrer"
       className={classNames("flex items-center gap-2", className)}
       onClick={handleClick}>

@@ -160,7 +160,7 @@ function EventTypeSingleLayout({
                     <Button
                       color="secondary"
                       data-testid="preview-button"
-                      target="_blank"
+                      target="_self"
                       variant="icon"
                       href={permalink}
                       rel="noreferrer"
@@ -221,7 +221,7 @@ function EventTypeSingleLayout({
             <DropdownMenuContent style={{ minWidth: "200px" }}>
               <DropdownMenuItem className="focus:ring-muted">
                 <DropdownItem
-                  target="_blank"
+                  target="_self"
                   type="button"
                   StartIcon="external-link"
                   href={permalink}

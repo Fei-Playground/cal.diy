@@ -154,7 +154,7 @@ function ActionTitle({ actionDisplayTitle }: { actionDisplayTitle: TranslationWi
             <Link
               key={comp.href}
               href={comp.href}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
               className="text-emphasis underline hover:no-underline"
             />
