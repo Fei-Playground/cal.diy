@@ -15,11 +15,15 @@
  */
 import { seedMockDb } from "./mock-seed";
 
-let ready: Promise<any> | undefined;
+// Single shared in-memory store across all server modules + HMR reloads, so a
+// write from one route (e.g. create event type) is visible to reads elsewhere.
+// Without this, Next can give each module its own prismock instance and writes
+// would silently vanish between actions.
+const globalForMock = globalThis as unknown as { __mockPrismaReady?: Promise<any> };
 
 function getClient(): Promise<any> {
-  if (!ready) {
-    ready = (async () => {
+  if (!globalForMock.__mockPrismaReady) {
+    globalForMock.__mockPrismaReady = (async () => {
       // Dynamic, server-only imports: prismock (and the 23MB DMMF JSON) must
       // never enter the client bundle. They load on first server-side call.
       // @ts-expect-error - deep import has no types
@@ -45,7 +49,7 @@ function getClient(): Promise<any> {
       return pm;
     })();
   }
-  return ready;
+  return globalForMock.__mockPrismaReady;
 }
 
 function modelDelegate(model: string) {
