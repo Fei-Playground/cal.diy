@@ -15,6 +15,11 @@ export const InputComponent = <
   inputClassName,
   ...props
 }: InputProps<Option, IsMulti, Group>) => {
+  // react-select emits aria-activedescendant="" during SSR but undefined on the
+  // client, tripping a React hydration attribute mismatch. Normalize the empty
+  // case to undefined (real focused-option ids are non-empty, so keyboard a11y
+  // is unaffected) so both renders agree.
+  const ariaActiveDescendant = props["aria-activedescendant"] || undefined;
   return (
     <reactSelectComponents.Input
       // disables our default form focus highlight on the react-select input element
@@ -23,6 +28,7 @@ export const InputComponent = <
         inputClassName
       )}
       {...props}
+      aria-activedescendant={ariaActiveDescendant}
     />
   );
 };
