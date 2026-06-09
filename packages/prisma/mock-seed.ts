@@ -11,11 +11,33 @@
  * the rest of the seed (and the app boot) still proceeds.
  */
 const now = new Date("2026-01-01T00:00:00.000Z");
-const later = new Date("2026-06-01T10:00:00.000Z");
-const laterEnd = new Date("2026-06-01T10:30:00.000Z");
+const later = new Date("2026-06-15T10:00:00.000Z");
+const laterEnd = new Date("2026-06-15T10:30:00.000Z");
 
 const USER_ID = 1;
 const SCHEDULE_ID = 1;
+const CREDENTIAL_ID = 10;
+const CALENDAR_INTEGRATION = "google_calendar";
+const CALENDAR_EXTERNAL_ID = "preview@cal.local";
+
+// prismock does NOT apply Prisma @default() values, so booking-relevant fields
+// must be set explicitly or the booking flow rejects every slot
+// (e.g. periodType null trips the future-limit check → booking_time_out_of_bounds).
+const EVENT_DEFAULTS = {
+  periodType: "UNLIMITED",
+  minimumBookingNotice: 0,
+  periodDays: null,
+  periodCountCalendarDays: false,
+  periodStartDate: null,
+  periodEndDate: null,
+  slotInterval: null,
+  beforeEventBuffer: 0,
+  afterEventBuffer: 0,
+  seatsPerTimeSlot: null,
+  requiresConfirmation: false,
+  hidden: false,
+  metadata: {},
+};
 
 async function tryCreate(label: string, fn: () => Promise<unknown>) {
   try {
@@ -57,6 +79,47 @@ export async function seedMockDb(pm: any): Promise<void> {
     })
   );
 
+  // A pre-"connected" calendar — no OAuth, served by the mock calendar adapter
+  // (see getMockCalendar.ts). Lets bookings sync to a calendar and shows up
+  // under Settings → Calendars as connected.
+  await tryCreate("credential", () =>
+    pm.credential.create({
+      data: {
+        id: CREDENTIAL_ID,
+        type: CALENDAR_INTEGRATION,
+        key: { access_token: "mock", refresh_token: "mock", expiry_date: 9999999999999 },
+        userId: USER_ID,
+        appId: "google-calendar",
+        invalid: false,
+      },
+    })
+  );
+
+  await tryCreate("destinationCalendar", () =>
+    pm.destinationCalendar.create({
+      data: {
+        id: 1,
+        integration: CALENDAR_INTEGRATION,
+        externalId: CALENDAR_EXTERNAL_ID,
+        primaryEmail: CALENDAR_EXTERNAL_ID,
+        userId: USER_ID,
+        credentialId: CREDENTIAL_ID,
+      },
+    })
+  );
+
+  await tryCreate("selectedCalendar", () =>
+    pm.selectedCalendar.create({
+      data: {
+        id: "00000000-0000-0000-0000-0000000000c1",
+        userId: USER_ID,
+        integration: CALENDAR_INTEGRATION,
+        externalId: CALENDAR_EXTERNAL_ID,
+        credentialId: CREDENTIAL_ID,
+      },
+    })
+  );
+
   // Mon–Fri 09:00–17:00 (startTime/endTime are minutes-from-midnight DateTimes in Cal.com).
   await tryCreate("availability", () =>
     pm.availability.create({
@@ -74,6 +137,7 @@ export async function seedMockDb(pm: any): Promise<void> {
   await tryCreate("eventType:30min", () =>
     pm.eventType.create({
       data: {
+        ...EVENT_DEFAULTS,
         id: 1,
         title: "30 Min Meeting",
         slug: "30min",
@@ -81,9 +145,7 @@ export async function seedMockDb(pm: any): Promise<void> {
         length: 30,
         userId: USER_ID,
         position: 0,
-        hidden: false,
         scheduleId: SCHEDULE_ID,
-        metadata: {},
       },
     })
   );
@@ -91,6 +153,7 @@ export async function seedMockDb(pm: any): Promise<void> {
   await tryCreate("eventType:60min", () =>
     pm.eventType.create({
       data: {
+        ...EVENT_DEFAULTS,
         id: 2,
         title: "60 Min Meeting",
         slug: "60min",
@@ -98,9 +161,7 @@ export async function seedMockDb(pm: any): Promise<void> {
         length: 60,
         userId: USER_ID,
         position: 1,
-        hidden: false,
         scheduleId: SCHEDULE_ID,
-        metadata: {},
       },
     })
   );

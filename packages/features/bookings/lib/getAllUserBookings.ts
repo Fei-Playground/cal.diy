@@ -35,7 +35,80 @@ type GetOptions = {
   sort?: SortOptions;
 };
 
+const MOCK_DB = process.env.MOCK_DB === "1" || process.env.MOCK_DB === "true";
+
+// DB-less preview mode: the real getBookings path runs a raw Kysely SQL union
+// that bypasses prismock and needs Postgres. Here we serve the same shape from
+// the in-memory store via Prisma so the bookings list renders.
+const getAllUserBookingsMock = async ({ ctx, filters, bookingListingByStatus, take, skip }: GetOptions) => {
+  const { prisma, user } = ctx;
+  const statuses = filters?.statuses ?? (filters?.status ? [filters.status] : bookingListingByStatus);
+  const now = new Date();
+
+  const whereForStatus = (status: string) => {
+    switch (status) {
+      case "upcoming":
+        return { endTime: { gte: now }, status: { notIn: ["cancelled", "rejected"] } };
+      case "past":
+        return { endTime: { lt: now }, status: { notIn: ["cancelled", "rejected"] } };
+      case "cancelled":
+        return { status: { in: ["cancelled", "rejected"] } };
+      case "unconfirmed":
+        return { status: "pending" };
+      case "recurring":
+        return { recurringEventId: { not: null } };
+      default:
+        return {};
+    }
+  };
+
+  const rows = await prisma.booking.findMany({
+    where: { userId: user.id, OR: statuses.map(whereForStatus) },
+    include: {
+      attendees: true,
+      user: true,
+      eventType: true,
+      references: true,
+      payment: true,
+      seatsReferences: true,
+    },
+    orderBy: { startTime: "asc" },
+    take,
+    skip,
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const bookings = (rows as Array<Record<string, any>>).map((b) => ({
+    ...b,
+    startTime: new Date(b.startTime).toISOString(),
+    endTime: new Date(b.endTime).toISOString(),
+    eventType: {
+      hosts: [],
+      ...(b.eventType ?? {}),
+      recurringEvent: null,
+      eventTypeColor: null,
+      price: b.eventType?.price ?? 0,
+      currency: b.eventType?.currency ?? "usd",
+      metadata: b.eventType?.metadata ?? {},
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    attendees: (b.attendees ?? []).map((a: Record<string, any>) => ({ ...a, user: null })),
+    references: b.references ?? [],
+    payment: b.payment ?? [],
+    seatsReferences: b.seatsReferences ?? [],
+    responses: b.responses ?? {},
+    // Computed/derived fields the real getBookings adds and the UI relies on.
+    assignmentReasonSortedByCreatedAt: b.assignmentReasonSortedByCreatedAt ?? [],
+  }));
+
+  return { bookings, recurringInfo: [], totalCount: bookings.length };
+};
+
 const getAllUserBookings = async ({ ctx, filters, bookingListingByStatus, take, skip, sort }: GetOptions) => {
+  if (MOCK_DB) {
+    return getAllUserBookingsMock({ ctx, filters, bookingListingByStatus, take, skip, sort });
+  }
+
   const { prisma, user, kysely } = ctx;
 
   // Support both singular 'status' and plural 'statuses' for backward compatibility
