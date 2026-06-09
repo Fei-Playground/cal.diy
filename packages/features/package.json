@@ -51,7 +51,6 @@
     "@calcom/testing": "workspace:*",
     "@testing-library/react-hooks": "8.0.1",
     "@types/deasync": "^0",
-    "@types/web-push": "3.6.3",
-    "trigger.dev": "4.3.2"
+    "@types/web-push": "3.6.3"
   }
 }
