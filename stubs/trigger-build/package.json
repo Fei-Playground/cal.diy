@@ -1,0 +1,10 @@
+{
+  "name": "@trigger.dev/build",
+  "version": "4.3.2",
+  "description": "Slim MVP stub for @trigger.dev/build (build extensions are no-ops). See stubs/README.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./index.js"
+  }
+}
