@@ -1,0 +1,19 @@
+{
+  "name": "@trigger.dev/build",
+  "version": "4.3.2",
+  "description": "Slim MVP stub for @trigger.dev/build (build extensions are no-ops). See stubs/README.",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.mjs"
+    },
+    "./*": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.mjs"
+    }
+  }
+}
