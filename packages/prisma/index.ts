@@ -6,6 +6,12 @@ import { disallowUndefinedDeleteUpdateManyExtension } from "./extensions/disallo
 import { excludeLockedUsersExtension } from "./extensions/exclude-locked-users";
 import { excludePendingPaymentsExtension } from "./extensions/exclude-pending-payment-teams";
 import { PrismaClient, type Prisma } from "./generated/prisma/client";
+import { mockPrisma } from "./mock-client";
+
+// DB-less preview mode: when MOCK_DB=1, every `prisma` consumer gets an
+// in-memory mock instead of a Postgres-backed client. The real path below is
+// left untouched so production behaviour is unchanged when the flag is off.
+const MOCK_DB = process.env.MOCK_DB === "1" || process.env.MOCK_DB === "true";
 
 const connectionString = process.env.DATABASE_URL || "";
 const pool =
@@ -48,6 +54,7 @@ if (!isNaN(loggerLevel)) {
 const baseClient = globalForPrisma.baseClient || new PrismaClient(prismaOptions);
 
 export const customPrisma = (options?: Prisma.PrismaClientOptions) => {
+  if (MOCK_DB) return mockPrisma as unknown as PrismaClient;
   let finalOptions = { ...prismaOptions };
 
   if (options?.datasources?.db?.url) {
@@ -76,11 +83,13 @@ export const customPrisma = (options?: Prisma.PrismaClientOptions) => {
 
 // Explanation why we cast as PrismaClient. When we leave Prisma to its devices it tries to infer logic based on the extensions, but this is not a simple extends.
 // this makes the PrismaClient export type-hint impossible and it also is a massive hit on Prisma type hinting performance.
-export const prisma: PrismaClient = baseClient
-  .$extends(excludeLockedUsersExtension())
-  .$extends(excludePendingPaymentsExtension())
-  .$extends(bookingIdempotencyKeyExtension())
-  .$extends(disallowUndefinedDeleteUpdateManyExtension()) as unknown as PrismaClient;
+export const prisma: PrismaClient = MOCK_DB
+  ? (mockPrisma as unknown as PrismaClient)
+  : (baseClient
+      .$extends(excludeLockedUsersExtension())
+      .$extends(excludePendingPaymentsExtension())
+      .$extends(bookingIdempotencyKeyExtension())
+      .$extends(disallowUndefinedDeleteUpdateManyExtension()) as unknown as PrismaClient);
 
 // This prisma instance is meant to be used only for READ operations.
 // If self hosting, feel free to leave INSIGHTS_DATABASE_URL as empty and `readonlyPrisma` will default to `prisma`.

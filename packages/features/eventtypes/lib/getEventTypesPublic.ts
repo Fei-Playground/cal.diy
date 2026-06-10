@@ -7,6 +7,8 @@ import { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
 
 const log = logger.getSubLogger({ prefix: ["getEventTypesPublic"] });
 
+const MOCK_DB = process.env.MOCK_DB === "1" || process.env.MOCK_DB === "true";
+
 export type EventTypesPublic = Awaited<ReturnType<typeof getEventTypesPublic>>;
 
 export async function getEventTypesPublic(userId: number) {
@@ -30,6 +32,24 @@ type RawEventType = BaseEventType & {
 };
 
 const getEventTypesWithHiddenFromDB = async (userId: number) => {
+  // DB-less preview mode: the real query is raw SQL ($queryRaw), which prismock
+  // can't run. Use a Prisma findMany equivalent (personal event types for the user).
+  if (MOCK_DB) {
+    const mockEventTypes = (await prisma.eventType.findMany({
+      where: { userId, teamId: null },
+      orderBy: [{ position: "desc" }, { id: "asc" }],
+    })) as unknown as RawEventType[];
+    return mockEventTypes.reduce<RawEventType[]>((acc, eventType) => {
+      const parsedMetadata = EventTypeMetaDataSchema.safeParse(eventType.metadata);
+      if (!parsedMetadata.success) {
+        log.error(parsedMetadata.error);
+        return acc;
+      }
+      acc.push({ ...eventType, metadata: parsedMetadata.data });
+      return acc;
+    }, []);
+  }
+
   const eventTypes = await prisma.$queryRaw<RawEventType[]>`
     SELECT data."id", data."title", data."description", data."length", data."schedulingType"::text,
       data."recurringEvent", data."slug", data."hidden", data."price", data."currency",

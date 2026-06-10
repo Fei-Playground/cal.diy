@@ -11,14 +11,21 @@ import type { Calendar, CalendarFetchMode } from "@calcom/types/Calendar";
 import type { CredentialForCalendarService } from "@calcom/types/Credential";
 
 import { CalendarServiceMap } from "../calendar.services.generated";
+import { getMockCalendar } from "./getMockCalendar";
 
 const log = logger.getSubLogger({ prefix: ["CalendarManager"] });
+
+const MOCK_DB = process.env.MOCK_DB === "1" || process.env.MOCK_DB === "true";
 
 export const getCalendar = async (
   credential: CredentialForCalendarService | null,
   mode: CalendarFetchMode = "none"
 ): Promise<Calendar | null> => {
-  if (!credential || !credential.key) return null;
+  if (!credential) return null;
+  // DB-less preview mode: bypass every real app-store adapter (no OAuth / no
+  // external API) and serve a mock calendar so bookings work end-to-end.
+  if (MOCK_DB) return getMockCalendar(credential);
+  if (!credential.key) return null;
   let { type: calendarType } = credential;
   if (calendarType?.endsWith("_other_calendar")) {
     calendarType = calendarType.split("_other_calendar")[0];
