@@ -223,6 +223,8 @@ const nextConfig = (phase: string): NextConfig => {
 
   return {
     output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined,
+    // Hide the floating Next.js dev indicator / issues overlay button in the corner.
+    devIndicators: false,
     serverExternalPackages: [
       "deasync",
       "http-cookie-agent",
