@@ -776,97 +776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:2.3.10, @biomejs/biome@npm:^2.3.8":
-  version: 2.3.10
-  resolution: "@biomejs/biome@npm:2.3.10"
-  dependencies:
-    "@biomejs/cli-darwin-arm64": "npm:2.3.10"
-    "@biomejs/cli-darwin-x64": "npm:2.3.10"
-    "@biomejs/cli-linux-arm64": "npm:2.3.10"
-    "@biomejs/cli-linux-arm64-musl": "npm:2.3.10"
-    "@biomejs/cli-linux-x64": "npm:2.3.10"
-    "@biomejs/cli-linux-x64-musl": "npm:2.3.10"
-    "@biomejs/cli-win32-arm64": "npm:2.3.10"
-    "@biomejs/cli-win32-x64": "npm:2.3.10"
-  dependenciesMeta:
-    "@biomejs/cli-darwin-arm64":
-      optional: true
-    "@biomejs/cli-darwin-x64":
-      optional: true
-    "@biomejs/cli-linux-arm64":
-      optional: true
-    "@biomejs/cli-linux-arm64-musl":
-      optional: true
-    "@biomejs/cli-linux-x64":
-      optional: true
-    "@biomejs/cli-linux-x64-musl":
-      optional: true
-    "@biomejs/cli-win32-arm64":
-      optional: true
-    "@biomejs/cli-win32-x64":
-      optional: true
-  bin:
-    biome: bin/biome
-  checksum: 10/c34427f06eee8559081fa7c93d79ddffc6d560ee6c8854cd1055907652ede717ed3944f314921e834d3f16ba20c75a98bd34b0d3e8712a7c30ac83fb2fe3903f
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-darwin-arm64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-darwin-arm64@npm:2.3.10"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-darwin-x64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-darwin-x64@npm:2.3.10"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-arm64-musl@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.3.10"
-  conditions: os=linux & cpu=arm64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-arm64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-linux-arm64@npm:2.3.10"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-x64-musl@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-linux-x64-musl@npm:2.3.10"
-  conditions: os=linux & cpu=x64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-x64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-linux-x64@npm:2.3.10"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-win32-arm64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-win32-arm64@npm:2.3.10"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-win32-x64@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@biomejs/cli-win32-x64@npm:2.3.10"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@borewit/text-codec@npm:^0.1.0":
   version: 0.1.1
   resolution: "@borewit/text-codec@npm:0.1.1"
@@ -927,7 +836,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/app-store-cli@workspace:packages/app-store-cli"
   dependencies:
-    "@biomejs/biome": "npm:^2.3.8"
     "@calcom/lib": "workspace:*"
     "@types/react": "npm:18.0.26"
     chokidar: "npm:3.6.0"
@@ -1106,7 +1014,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/embed-core@workspace:packages/embeds/embed-core"
   dependencies:
-    "@biomejs/biome": "npm:2.3.10"
     "@playwright/test": "npm:1.57.0"
     "@tailwindcss/cli": "npm:4.1.16"
     "@tailwindcss/postcss": "npm:4.1.15"
@@ -1367,7 +1274,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/lib@workspace:packages/lib"
   dependencies:
-    "@biomejs/biome": "npm:2.3.10"
     "@calcom/config": "workspace:*"
     "@calcom/dayjs": "workspace:*"
     "@calcom/i18n": "workspace:*"
@@ -1568,7 +1474,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/testing@workspace:packages/testing"
   dependencies:
-    "@biomejs/biome": "npm:2.3.10"
     "@calcom/i18n": "workspace:*"
     "@calcom/lib": "workspace:*"
     "@calcom/prisma": "workspace:*"
@@ -1582,7 +1487,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/trpc@workspace:packages/trpc"
   dependencies:
-    "@biomejs/biome": "npm:2.3.10"
     "@calcom/i18n": "workspace:*"
     "@formbricks/api": "npm:3.0.0"
     "@tanstack/react-query": "npm:5.17.19"
@@ -1625,7 +1529,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@calcom/ui@workspace:packages/ui"
   dependencies:
-    "@biomejs/biome": "npm:^2.3.8"
     "@calcom/config": "workspace:*"
     "@calcom/lib": "workspace:*"
     "@calcom/tsconfig": "workspace:*"
@@ -1699,7 +1602,6 @@ __metadata:
   resolution: "@calcom/web@workspace:apps/web"
   dependencies:
     "@babel/core": "npm:7.26.10"
-    "@biomejs/biome": "npm:2.3.10"
     "@calcom/app-store": "workspace:*"
     "@calcom/app-store-cli": "workspace:*"
     "@calcom/config": "workspace:*"
@@ -2182,7 +2084,6 @@ __metadata:
   resolution: "@coss/ui@workspace:packages/coss-ui"
   dependencies:
     "@base-ui/react": "npm:1.0.0"
-    "@biomejs/biome": "npm:2.3.10"
     class-variance-authority: "npm:0.7.1"
     clsx: "npm:2.1.1"
     lucide-react: "npm:0.555.0"
@@ -12156,7 +12057,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "calcom-monorepo@workspace:."
   dependencies:
-    "@biomejs/biome": "npm:2.3.10"
     "@changesets/changelog-github": "npm:0.5.1"
     "@changesets/cli": "npm:2.29.4"
     "@jetstreamapp/soql-parser-js": "npm:6.1.0"

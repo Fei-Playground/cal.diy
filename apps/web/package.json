@@ -150,7 +150,6 @@
   },
   "devDependencies": {
     "@babel/core": "7.26.10",
-    "@biomejs/biome": "2.3.10",
     "@calcom/config": "workspace:*",
     "@calcom/testing": "workspace:*",
     "@calcom/types": "workspace:*",

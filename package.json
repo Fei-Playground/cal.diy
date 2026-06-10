@@ -82,7 +82,6 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.10",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.29.4",
     "@jetstreamapp/soql-parser-js": "6.1.0",
