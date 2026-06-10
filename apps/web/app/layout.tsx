@@ -124,7 +124,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Script
             src="//unpkg.com/react-grab/dist/index.global.js"
             crossOrigin="anonymous"
-            strategy="beforeInteractive"
+            strategy="lazyOnload"
             data-options='{"activationKey":"Meta+c"}'
           />
         )}
