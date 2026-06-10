@@ -155,9 +155,9 @@
     "@calcom/types": "workspace:*",
     "@microsoft/microsoft-graph-types-beta": "0.15.0-preview",
     "@playwright/test": "1.57.0",
-    "@storybook/addon-docs": "9.1.20",
-    "@storybook/addon-onboarding": "9.1.20",
-    "@storybook/nextjs-vite": "9.1.20",
+    "@storybook/addon-docs": "10.4.3",
+    "@storybook/addon-onboarding": "10.4.3",
+    "@storybook/nextjs-vite": "10.4.3",
     "@tailwindcss/postcss": "4.1.15",
     "@testing-library/react": "13.3.0",
     "@types/accept-language-parser": "1.5.2",
@@ -193,12 +193,12 @@
     "node-html-parser": "6.1.13",
     "node-mocks-http": "1.16.2",
     "postcss": "8.5.6",
-    "storybook": "9.1.20",
+    "storybook": "10.4.3",
     "tailwindcss": "4.1.17",
     "ts-node": "10.9.2",
     "turbo": "2.5.5",
     "typescript": "5.9.3",
-    "vite": "6.4.2"
+    "vite": "8.0.16"
   },
   "nextBundleAnalysis": {
     "budget": 358400,
