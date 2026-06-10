@@ -15,12 +15,12 @@
     "lint:report": "biome lint --reporter json . > ../../lint-results/testing.json"
   },
   "dependencies": {
-    "@calcom/i18n": "workspace:*",
-    "@calcom/lib": "workspace:*",
-    "@calcom/prisma": "workspace:*"
+    "@calcom/i18n": "portal:../i18n",
+    "@calcom/lib": "portal:../lib",
+    "@calcom/prisma": "portal:../prisma"
   },
   "devDependencies": {
-    "@calcom/tsconfig": "workspace:*",
+    "@calcom/tsconfig": "portal:../tsconfig",
     "prismock": "1.35.3",
     "vitest": "4.1.8"
   }

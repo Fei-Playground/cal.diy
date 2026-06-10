@@ -14,13 +14,13 @@
     "deploy:trigger:staging": "npx trigger.dev@latest deploy --env staging --skip-promotion"
   },
   "dependencies": {
-    "@calcom/atoms": "workspace:*",
-    "@calcom/dayjs": "workspace:*",
-    "@calcom/i18n": "workspace:*",
-    "@calcom/lib": "workspace:*",
-    "@calcom/trpc": "workspace:*",
-    "@calcom/ui": "workspace:*",
-    "@coss/ui": "workspace:*",
+    "@calcom/atoms": "portal:../platform/atoms",
+    "@calcom/dayjs": "portal:../dayjs",
+    "@calcom/i18n": "portal:../i18n",
+    "@calcom/lib": "portal:../lib",
+    "@calcom/trpc": "portal:../trpc",
+    "@calcom/ui": "portal:../ui",
+    "@coss/ui": "portal:../coss-ui",
     "@evyweb/ioctopus": "1.2.0",
     "@tanstack/react-table": "8.20.6",
     "@tanstack/react-virtual": "3.10.9",
@@ -49,7 +49,7 @@
     "zod": "^3.0.0"
   },
   "devDependencies": {
-    "@calcom/testing": "workspace:*",
+    "@calcom/testing": "portal:../testing",
     "@testing-library/react-hooks": "8.0.1",
     "@types/deasync": "^0",
     "@types/web-push": "3.6.3"

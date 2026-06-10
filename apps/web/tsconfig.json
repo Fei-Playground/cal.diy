@@ -3,6 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@sentry/nextjs": ["./sentry-stub.ts"],
+      "posthog-js": ["./posthog-stub.ts"],
+      "vitest": ["./test-stub.ts"],
+      "vitest-mock-extended": ["./test-stub.ts"],
+      "vitest-fetch-mock": ["./test-stub.ts"],
       "~/*": ["modules/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],

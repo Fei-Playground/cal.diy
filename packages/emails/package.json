@@ -7,8 +7,8 @@
     "dx": "docker compose up -d || docker-compose up -d"
   },
   "dependencies": {
-    "@calcom/dayjs": "workspace:*",
-    "@calcom/lib": "workspace:*",
+    "@calcom/dayjs": "portal:../dayjs",
+    "@calcom/lib": "portal:../lib",
     "rrule": "2.7.1"
   },
   "peerDependencies": {
@@ -16,8 +16,8 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@calcom/testing": "workspace:*",
-    "@calcom/tsconfig": "workspace:*",
-    "@calcom/types": "workspace:*"
+    "@calcom/testing": "portal:../testing",
+    "@calcom/tsconfig": "portal:../tsconfig",
+    "@calcom/types": "portal:../types"
   }
 }

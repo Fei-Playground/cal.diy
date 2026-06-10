@@ -15,7 +15,7 @@
     "i18next": "23.2.3"
   },
   "devDependencies": {
-    "@calcom/tsconfig": "workspace:*",
+    "@calcom/tsconfig": "portal:../tsconfig",
     "typescript": "5.9.3"
   }
 }
