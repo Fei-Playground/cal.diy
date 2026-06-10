@@ -266,6 +266,9 @@ const nextConfig = (phase: string): NextConfig => {
       // local no-op stub so nothing resolves the absent package.
       resolveAlias: {
         "@sentry/nextjs": "./sentry-stub.ts",
+        // posthog-js (24M) removed; the app only calls posthog.capture (never
+        // initialized in preview), so redirect to a no-op stub.
+        "posthog-js": "./posthog-stub.ts",
       },
     },
     async rewrites() {
