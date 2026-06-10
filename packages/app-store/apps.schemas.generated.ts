@@ -5,48 +5,34 @@
 import { appDataSchema as alby_zod_ts } from "./alby/zod"
 import { appDataSchema as btcpayserver_zod_ts } from "./btcpayserver/zod"
 import { appDataSchema as dailyvideo_zod_ts } from "./dailyvideo/zod"
-import { appDataSchema as feishucalendar_zod_ts } from "./feishucalendar/zod"
-import { appDataSchema as giphy_zod_ts } from "./giphy/zod"
 import { appDataSchema as googlecalendar_zod_ts } from "./googlecalendar/zod"
 import { appDataSchema as googlevideo_zod_ts } from "./googlevideo/zod"
 import { appDataSchema as hitpay_zod_ts } from "./hitpay/zod"
-import { appDataSchema as hubspot_zod_ts } from "./hubspot/zod"
-import { appDataSchema as jitsivideo_zod_ts } from "./jitsivideo/zod"
-import { appDataSchema as larkcalendar_zod_ts } from "./larkcalendar/zod"
 import { appDataSchema as make_zod_ts } from "./make/zod"
 import { appDataSchema as office365calendar_zod_ts } from "./office365calendar/zod"
 import { appDataSchema as office365video_zod_ts } from "./office365video/zod"
 import { appDataSchema as paypal_zod_ts } from "./paypal/zod"
 import { appDataSchema as salesforce_zod_ts } from "./salesforce/zod"
 import { appDataSchema as stripepayment_zod_ts } from "./stripepayment/zod"
-import { appDataSchema as tandemvideo_zod_ts } from "./tandemvideo/zod"
 import { appDataSchema as booking_pages_tag_zod_ts } from "./templates/booking-pages-tag/zod"
 import { appDataSchema as event_type_app_card_zod_ts } from "./templates/event-type-app-card/zod"
-import { appDataSchema as vital_zod_ts } from "./vital/zod"
 import { appDataSchema as zapier_zod_ts } from "./zapier/zod"
 import { appDataSchema as zoomvideo_zod_ts } from "./zoomvideo/zod"
 export const appDataSchemas = {
 "alby": alby_zod_ts,
 "btcpayserver": btcpayserver_zod_ts,
 "dailyvideo": dailyvideo_zod_ts,
-"feishucalendar": feishucalendar_zod_ts,
-"giphy": giphy_zod_ts,
 "googlecalendar": googlecalendar_zod_ts,
 "googlevideo": googlevideo_zod_ts,
 "hitpay": hitpay_zod_ts,
-"hubspot": hubspot_zod_ts,
-"jitsivideo": jitsivideo_zod_ts,
-"larkcalendar": larkcalendar_zod_ts,
 "make": make_zod_ts,
 "office365calendar": office365calendar_zod_ts,
 "office365video": office365video_zod_ts,
 "paypal": paypal_zod_ts,
 "salesforce": salesforce_zod_ts,
 "stripe": stripepayment_zod_ts,
-"tandemvideo": tandemvideo_zod_ts,
 "booking-pages-tag": booking_pages_tag_zod_ts,
 "event-type-app-card": event_type_app_card_zod_ts,
-"vital": vital_zod_ts,
 "zapier": zapier_zod_ts,
 "zoomvideo": zoomvideo_zod_ts,
 };

@@ -8,8 +8,6 @@ export const CalendarServiceMap = process.env.NEXT_PUBLIC_IS_E2E === '1' ? {} : 
 "exchange2013calendar": import("./exchange2013calendar/lib/CalendarService"),
 "exchange2016calendar": import("./exchange2016calendar/lib/CalendarService"),
 "exchangecalendar": import("./exchangecalendar/lib/CalendarService"),
-"feishucalendar": import("./feishucalendar/lib/CalendarService"),
 "googlecalendar": import("./googlecalendar/lib/CalendarService"),
-"larkcalendar": import("./larkcalendar/lib/CalendarService"),
 "office365calendar": import("./office365calendar/lib/CalendarService"),
 };

@@ -5,8 +5,6 @@
 export const VideoApiAdapterMap = process.env.NEXT_PUBLIC_IS_E2E === '1' ? {} : {
 "dailyvideo": import("./dailyvideo/lib/VideoApiAdapter"),
 "huddle01video": import("./huddle01video/lib/VideoApiAdapter"),
-"jitsivideo": import("./jitsivideo/lib/VideoApiAdapter"),
 "office365video": import("./office365video/lib/VideoApiAdapter"),
-"tandemvideo": import("./tandemvideo/lib/VideoApiAdapter"),
 "zoomvideo": import("./zoomvideo/lib/VideoApiAdapter"),
 };
