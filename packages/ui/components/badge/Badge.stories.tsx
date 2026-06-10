@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Badge } from "@calcom/ui/components/badge";
+import { Badge } from "./Badge";
 
 /**
- * Example story wiring a real `@calcom/ui` component into Storybook, to confirm
- * the design-system components render under Storybook 9 + Next.js 16 (vite).
+ * Story colocated next to the component (Fei PREVIEWER convention) — confirms
+ * the @calcom/ui design system renders under Storybook 9 + Next.js 16 (vite).
  */
 const meta = {
   title: "Cal UI/Badge",
