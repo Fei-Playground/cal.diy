@@ -29,12 +29,6 @@ generator zod {
   /// createRelationValuesTypes = true
 }
 
-generator kysely {
-  provider = "prisma-kysely"
-  output   = "../kysely"
-  fileName = "types.ts"
-}
-
 generator enums {
   provider = "prisma-enum-generator"
 }

@@ -232,7 +232,6 @@ const nextConfig = (phase: string): NextConfig => {
       "superagent-proxy",
       "superagent",
       "formidable",
-      "@boxyhq/saml-jackson",
       "jose",
       // DB-less preview mode (MOCK_DB=1): keep prismock unbundled so its
       // internal prisma-schema-wasm path resolves from node_modules at runtime.
@@ -261,7 +260,17 @@ const nextConfig = (phase: string): NextConfig => {
     images: {
       unoptimized: true,
     },
-    turbopack: {},
+    turbopack: {
+      // DB-less preview: @sentry/nextjs was removed to slim the install. Redirect
+      // every @sentry/nextjs import (browser + server, across the monorepo) to a
+      // local no-op stub so nothing resolves the absent package.
+      resolveAlias: {
+        "@sentry/nextjs": "./sentry-stub.ts",
+        // posthog-js (24M) removed; the app only calls posthog.capture (never
+        // initialized in preview), so redirect to a no-op stub.
+        "posthog-js": "./posthog-stub.ts",
+      },
+    },
     async rewrites() {
       const { orgSlug } = nextJsOrgRewriteConfig;
       const beforeFiles = [

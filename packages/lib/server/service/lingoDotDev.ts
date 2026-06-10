@@ -1,14 +1,13 @@
-import { LINGO_DOT_DEV_API_KEY } from "@calcom/lib/constants";
 import logger from "@calcom/lib/logger";
-import type { LocaleCode } from "@lingo.dev/_spec";
-import { LingoDotDevEngine } from "lingo.dev/sdk";
 
+type LocaleCode = string;
+
+// The `lingo.dev` SDK was removed to slim the preview install. Translation is a
+// no-op here: every method below already short-circuits to a passthrough when
+// `engine` is null, which is exactly the production behavior when
+// LINGO_DOT_DEV_API_KEY is unset (always the case in DB-less preview).
 export class LingoDotDevService {
-  private static engine = LINGO_DOT_DEV_API_KEY
-    ? new LingoDotDevEngine({
-        apiKey: LINGO_DOT_DEV_API_KEY,
-      })
-    : null;
+  private static engine: null = null;
 
   /**
    * Localizes text from one language to another

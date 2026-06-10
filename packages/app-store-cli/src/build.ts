@@ -14,9 +14,12 @@ const isInWatchMode = process.argv[2] === "--watch";
 const repoRoot = path.resolve(__dirname, "../../..");
 
 const formatFileWithBiome = (filePath: string) => {
+  // @biomejs/biome was removed to slim the preview install. Formatting the
+  // generated files is cosmetic, so skip it gracefully when biome is absent
+  // (spawn error or non-zero exit) instead of failing the whole generation.
   // Normalize to forward slashes for cross-platform Biome compatibility
   const normalizedPath = filePath.replace(/\\/g, "/");
-  const { status } = spawnSync(
+  const { status, error } = spawnSync(
     "yarn",
     ["biome", "format", "--write", "--no-errors-on-unmatched", normalizedPath],
     {
@@ -26,8 +29,8 @@ const formatFileWithBiome = (filePath: string) => {
     }
   );
 
-  if (status !== 0) {
-    throw new Error(`Biome formatting failed for ${filePath}`);
+  if (error || status !== 0) {
+    console.warn(`Skipping Biome formatting for ${filePath} (biome unavailable)`);
   }
 };
 

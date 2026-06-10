@@ -24,7 +24,6 @@
     "ics": "2.37.0",
     "ipaddr.js": "2.3.0",
     "jimp": "0.16.1",
-    "lingo.dev": "0.117.14",
     "rrule": "2.7.1",
     "sharp": "0.33.5",
     "tsdav": "2.0.3",
@@ -32,10 +31,8 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.10",
     "@calcom/tsconfig": "workspace:*",
     "@calcom/types": "workspace:*",
-    "@faker-js/faker": "7.6.0",
     "typescript": "5.9.3"
   }
 }

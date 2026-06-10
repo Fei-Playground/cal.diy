@@ -10,7 +10,17 @@ import { createRequire } from "node:module";
 import { copyIcons, removeTempDir } from "./generate-icons.mjs";
 
 const require = createRequire(import.meta.url);
-const biomeBin = require.resolve("@biomejs/biome/bin/biome");
+
+// @biomejs/biome was removed to slim the preview install. Resolve it lazily and
+// tolerate its absence: the generated sprite/types are committed, so the
+// formatting step below is only reached when icons actually change.
+function resolveBiomeBin() {
+  try {
+    return require.resolve("@biomejs/biome/bin/biome");
+  } catch {
+    return null;
+  }
+}
 
 const cwd = process.cwd();
 const inputDir = path.join(cwd, "svg-icons");
@@ -135,7 +145,10 @@ async function writeIfChanged(filepath, newContent) {
     .catch(() => "");
   if (currentContent === newContent) return false;
   await fsExtra.writeFile(filepath, newContent, "utf8");
-  await $`node ${biomeBin} format --write ${filepath}`;
+  const biomeBin = resolveBiomeBin();
+  if (biomeBin) {
+    await $`node ${biomeBin} format --write ${filepath}`;
+  }
   return true;
 }
 
