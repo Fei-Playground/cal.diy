@@ -260,7 +260,14 @@ const nextConfig = (phase: string): NextConfig => {
     images: {
       unoptimized: true,
     },
-    turbopack: {},
+    turbopack: {
+      // DB-less preview: @sentry/nextjs was removed to slim the install. Redirect
+      // every @sentry/nextjs import (browser + server, across the monorepo) to a
+      // local no-op stub so nothing resolves the absent package.
+      resolveAlias: {
+        "@sentry/nextjs": "./sentry-stub.ts",
+      },
+    },
     async rewrites() {
       const { orgSlug } = nextJsOrgRewriteConfig;
       const beforeFiles = [
