@@ -3,4 +3,4 @@
     Don't modify this file manually.
 **/
 export const REDIRECT_APPS = ["zapier"] as const;
-export type RedirectApp = (typeof REDIRECT_APPS)[number];
+export type RedirectApp = typeof REDIRECT_APPS[number];

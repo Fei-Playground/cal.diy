@@ -3,6 +3,6 @@
     Don't modify this file manually.
 **/
 export const CrmServiceMap = {
-  hubspot: import("./hubspot/lib/CrmService"),
-  salesforce: import("./salesforce/lib/CrmService"),
+"hubspot": import("./hubspot/lib/CrmService"),
+"salesforce": import("./salesforce/lib/CrmService"),
 };
