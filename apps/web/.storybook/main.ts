@@ -1,6 +1,13 @@
 import type { StorybookConfig } from '@storybook/nextjs-vite';
 
 import { join, dirname, resolve } from "node:path"
+import { fileURLToPath } from "node:url"
+import { createRequire } from "node:module"
+
+// Storybook 10 loads this config as native ESM, where __dirname / require are
+// not defined — reconstruct them from import.meta.url.
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const require = createRequire(import.meta.url)
 
 // Monorepo root, so Vite is allowed to serve story/component files that live
 // outside apps/web (e.g. packages/ui).
