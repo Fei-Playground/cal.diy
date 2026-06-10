@@ -69,9 +69,9 @@ yarn-error.log*
 packages/prisma/client/*
 !packages/prisma/client/index.ts
 apps/api/v2/generated/prisma/*
-packages/prisma/generated/prisma/*
-packages/prisma/zod/**/*.ts
-packages/prisma/enums
+# Generated Prisma client / zod / enums are committed (not generated at install)
+# to slim the preview: the `prisma` CLI is removed and `prisma generate` no
+# longer runs in postinstall. See packages/prisma/package.json post-install.
 
 # Builds
 dist
