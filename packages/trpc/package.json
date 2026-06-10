@@ -14,7 +14,7 @@
     "build:react": "yarn tsc --project tsconfig.react.json"
   },
   "dependencies": {
-    "@calcom/i18n": "workspace:*",
+    "@calcom/i18n": "portal:../i18n",
     "@formbricks/api": "3.0.0",
     "@trpc/client": "11.0.0-next-beta.222",
     "@trpc/next": "11.0.0-next-beta.222",

@@ -29,6 +29,6 @@
     "vite": "8.0.16"
   },
   "dependencies": {
-    "@calcom/embed-core": "workspace:*"
+    "@calcom/embed-core": "portal:../embed-core"
   }
 }

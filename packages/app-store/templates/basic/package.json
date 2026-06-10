@@ -5,10 +5,10 @@
   "version": "0.0.0",
   "main": "./index.ts",
   "dependencies": {
-    "@calcom/lib": "workspace:*"
+    "@calcom/lib": "portal:../../../lib"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*"
+    "@calcom/types": "portal:../../../types"
   },
   "description": "It is a template for an app that can be installed and provides no other feature."
 }

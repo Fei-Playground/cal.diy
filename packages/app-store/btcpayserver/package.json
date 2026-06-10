@@ -5,10 +5,10 @@
   "version": "0.0.0",
   "main": "./index.ts",
   "dependencies": {
-    "@calcom/lib": "workspace:*"
+    "@calcom/lib": "portal:../../lib"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*"
+    "@calcom/types": "portal:../../types"
   },
   "description": "BTCPay Server is a self-hosted open source Bitcoin payment processor. Start receiving bitcoin payments for your events and bookings."
 }

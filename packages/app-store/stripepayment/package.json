@@ -10,13 +10,13 @@
     "downgrade": "ts-node ./downgrade.ts"
   },
   "dependencies": {
-    "@calcom/app-store": "workspace:*",
-    "@calcom/dayjs": "workspace:*",
-    "@calcom/emails": "workspace:*",
-    "@calcom/features": "workspace:*",
-    "@calcom/lib": "workspace:*",
-    "@calcom/prisma": "workspace:*",
-    "@calcom/types": "workspace:*",
+    "@calcom/app-store": "portal:..",
+    "@calcom/dayjs": "portal:../../dayjs",
+    "@calcom/emails": "portal:../../emails",
+    "@calcom/features": "portal:../../features",
+    "@calcom/lib": "portal:../../lib",
+    "@calcom/prisma": "portal:../../prisma",
+    "@calcom/types": "portal:../../types",
     "@stripe/react-stripe-js": "1.10.0",
     "@stripe/stripe-js": "1.35.0",
     "stripe": "9.16.0",
@@ -24,7 +24,7 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*",
+    "@calcom/types": "portal:../../types",
     "ts-node": "10.9.2"
   }
 }
