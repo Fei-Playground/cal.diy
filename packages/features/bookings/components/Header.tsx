@@ -73,7 +73,7 @@ export function Header({
           <Tooltip content={t("troubleshooter_tooltip")} side="bottom">
             <Button
               color="primary"
-              target="_blank"
+              target="_self"
               href={`${WEBAPP_URL}/availability/troubleshoot?eventType=${eventSlug}`}>
               {t("need_help")}
             </Button>

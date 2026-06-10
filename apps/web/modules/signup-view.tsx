@@ -752,14 +752,14 @@ export default function Signup({
                             className="text-emphasis hover:underline"
                             key="terms"
                             href={`${WEBSITE_TERMS_URL}`}
-                            target="_blank">
+                            target="_self">
                             Terms
                           </Link>,
                           <Link
                             className="text-emphasis hover:underline"
                             key="privacy"
                             href={`${WEBSITE_PRIVACY_POLICY_URL}`}
-                            target="_blank">
+                            target="_self">
                             Privacy Policy.
                           </Link>,
                         ]}

@@ -157,7 +157,7 @@ export const ChildrenEventTypeSelect = ({
                         <Button
                           data-testid="preview-button"
                           color="secondary"
-                          target="_blank"
+                          target="_self"
                           variant="icon"
                           className={customClassNames?.selectedChildrenList?.listItem?.previewEventTypeButton}
                           href={`/${children.owner?.username}/${children.slug}`}
@@ -170,7 +170,7 @@ export const ChildrenEventTypeSelect = ({
                       content={t("delete")}>
                       <Button
                         color="secondary"
-                        target="_blank"
+                        target="_self"
                         variant="icon"
                         className={customClassNames?.selectedChildrenList?.listItem?.deleteEventTypeButton}
                         onClick={() =>

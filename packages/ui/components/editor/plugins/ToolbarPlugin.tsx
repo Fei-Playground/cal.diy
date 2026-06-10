@@ -205,7 +205,7 @@ function FloatingLinkEditor({ editor }: { editor: LexicalEditor }) {
       ) : (
         <>
           <div className="link-input">
-            <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+            <a href={linkUrl} target="_self" rel="noopener noreferrer">
               {linkUrl}
             </a>
             <div

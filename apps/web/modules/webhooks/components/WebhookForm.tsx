@@ -484,7 +484,7 @@ const WebhookForm = (props: {
                     value={newSecret}
                     onChange={(event) => setNewSecret(event.currentTarget.value)}
                     type="text"
-                    placeholder={t("leave_blank_to_remove_secret")}
+                    placeholder={t("leave_self_to_remove_secret")}
                   />
                   <Button
                     color="secondary"

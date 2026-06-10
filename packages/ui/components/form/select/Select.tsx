@@ -43,11 +43,17 @@ export const Select = <
 
   const hasMultiLastIcons = props.isMulti || props.isLoading || props.isClearable;
 
+  // Stable instanceId so react-select's element ids are identical on server and
+  // client (its default auto-incrementing counter diverges when sibling selects
+  // render in a different loading state during SSR → hydration mismatch).
+  const generatedInstanceId = useId();
+
   // Annoyingly if we update styles here we have to update timezone select too
   // We cant create a generate function for this as we can't force state changes - onSelect styles dont change for example
   return (
     <ReactSelect
       {...reactSelectProps}
+      instanceId={generatedInstanceId}
       menuPlacement={menuPlacement}
       styles={{
         control: (base, _props) =>

@@ -59,7 +59,7 @@ export function TableActions({
       <ButtonGroup combined containerProps={{ className: "border-default hidden md:flex" }}>
         <Tooltip content={t("view_public_page")}>
           <Button
-            target="_blank"
+            target="_self"
             href={usersProfileUrl}
             color="secondary"
             className={classNames(!permissionsForUser.canEdit ? "rounded-r-md" : "")}

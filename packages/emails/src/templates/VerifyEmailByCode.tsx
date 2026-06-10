@@ -50,7 +50,7 @@ export const VerifyEmailByCode = (
               <a
                 href={`mailto:${SUPPORT_MAIL_ADDRESS}`}
                 style={{ color: "#3E3E3E" }}
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
               >
                 <>

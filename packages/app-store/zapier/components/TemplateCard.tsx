@@ -20,14 +20,14 @@ export default function TemplateCard({ template }: { template: Template }) {
       </div>
       <div className="hidden w-full sm:block">
         <div className="float-right">
-          <Button color="secondary" className=" w-[90px]" target="_blank" href={template.link}>
+          <Button color="secondary" className=" w-[90px]" target="_self" href={template.link}>
             Use Zap
           </Button>
         </div>
       </div>
       <div className="mt-2 block w-full sm:hidden">
         <div className="float-right">
-          <Button color="secondary" className="w-[90px]" target="_blank" href={template.link}>
+          <Button color="secondary" className="w-[90px]" target="_self" href={template.link}>
             Use Zap
           </Button>
         </div>

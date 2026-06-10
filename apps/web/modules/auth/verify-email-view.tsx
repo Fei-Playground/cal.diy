@@ -77,7 +77,7 @@ function VerifyEmailPage() {
                       key={name}
                       color="secondary"
                       href={href}
-                      target="_blank"
+                      target="_self"
                       rel="noopener noreferrer">
                       <img src={icon} alt={name} className="me-1 h-4 w-4" /> {name}
                     </Button>

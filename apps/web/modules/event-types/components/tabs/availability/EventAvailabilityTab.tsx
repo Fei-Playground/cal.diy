@@ -272,7 +272,7 @@ const EventTypeScheduleDetails = memo(
                 disabled={isSchedulePending}
                 color="minimal"
                 EndIcon="external-link"
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer">
                 {t("edit_availability")}
               </Button>
@@ -415,7 +415,7 @@ const EventTypeRestrictionScheduleDetails = memo(
                 disabled={isSchedulePending}
                 color="minimal"
                 EndIcon="external-link"
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer">
                 {t("edit_availability")}
               </Button>

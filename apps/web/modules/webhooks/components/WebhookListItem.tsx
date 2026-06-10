@@ -140,7 +140,7 @@ export default function WebhookListItem(props: {
                           className="relative flex h-5 items-center justify-center px-2 sm:h-4.5"
                           href={`https://cal.com/docs/developing/guides/automation/webhooks#${webhook.version}`}
                           rel="noopener noreferrer"
-                          target="_blank"
+                          target="_self"
                         />
                       }>
                       <span className="sr-only">{t("webhook_version_docs")}</span>

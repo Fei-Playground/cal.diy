@@ -122,7 +122,7 @@ export const AppPage = ({
   const handleAppInstall = () => {
     if (isRedirectApp(slug)) {
       // For redirect apps, open the external URL directly
-      if (website) window.open(website, "_blank", "noopener,noreferrer");
+      if (website) window.open(website, "_self", "noopener,noreferrer");
       return;
     }
     setIsLoading(true);
@@ -371,7 +371,7 @@ export const AppPage = ({
                 </>
               )}
               •{" "}
-              <a target="_blank" rel="noreferrer" href={website}>
+              <a target="_self" rel="noreferrer" href={website}>
                 {t("published_by", { author })}
               </a>
             </h2>
@@ -443,7 +443,7 @@ export const AppPage = ({
           {docs && (
             <li>
               <a
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
                 className="text-emphasis text-sm font-normal no-underline hover:underline"
                 href={docs}>
@@ -455,7 +455,7 @@ export const AppPage = ({
           {website && (
             <li>
               <a
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
                 className="text-emphasis font-normal no-underline hover:underline"
                 href={website}>
@@ -467,7 +467,7 @@ export const AppPage = ({
           {email && (
             <li>
               <a
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
                 className="text-emphasis font-normal no-underline hover:underline"
                 href={`mailto:${email}`}>
@@ -480,7 +480,7 @@ export const AppPage = ({
           {tos && (
             <li>
               <a
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
                 className="text-emphasis font-normal no-underline hover:underline"
                 href={tos}>
@@ -492,7 +492,7 @@ export const AppPage = ({
           {privacy && (
             <li>
               <a
-                target="_blank"
+                target="_self"
                 rel="noreferrer"
                 className="text-emphasis font-normal no-underline hover:underline"
                 href={privacy}>

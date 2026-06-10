@@ -71,7 +71,7 @@ const ColorPicker = (props: ColorPickerProps) => {
         <div className="px-1">
           <Button
             color="secondary"
-            target="_blank"
+            target="_self"
             variant="icon"
             rel="noreferrer"
             aria-label="Reset to default"

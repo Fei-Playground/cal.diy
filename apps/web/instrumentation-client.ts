@@ -4,6 +4,21 @@
 import * as Sentry from "@sentry/nextjs";
 import { initBotId } from "botid/client/core";
 
+// Silence the noisy, harmless React 19 deprecation that the pinned Radix UI
+// primitives (@radix-ui/react-tooltip@1.0.x, react-dialog@1.0.x) emit because
+// they still read `element.ref`. It's a third-party deprecation notice, not a
+// real error; the fix is an upstream Radix upgrade. Drop only this exact message.
+if (typeof window !== "undefined") {
+  const originalConsoleError = console.error;
+  console.error = (...args: unknown[]) => {
+    const first = args[0];
+    if (typeof first === "string" && first.includes("Accessing element.ref was removed in React 19")) {
+      return;
+    }
+    originalConsoleError(...args);
+  };
+}
+
 if (process.env.NODE_ENV === "production") {
   Sentry.init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN_CLIENT,

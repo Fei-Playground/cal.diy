@@ -48,7 +48,7 @@ export const VerifyAccountEmail = (
             <a
               href={`mailto:${SUPPORT_MAIL_ADDRESS}`}
               style={{ color: "#3E3E3E" }}
-              target="_blank"
+              target="_self"
               rel="noreferrer">
               <>{props.language("the_calcom_team", { companyName: SENDER_NAME })}</>
             </a>

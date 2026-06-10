@@ -138,14 +138,14 @@ export const AlbyPaymentComponent = (props: IAlbyPaymentComponentProps) => {
                 StartIcon={isCopied ? "clipboard-check" : "clipboard"}>
                 Copy Invoice
               </Button>
-              <Link target="_blank" href="https://getalby.com" className="link mt-4 text-sm underline">
+              <Link target="_self" href="https://getalby.com" className="link mt-4 text-sm underline">
                 Don&apos;t have a lightning wallet?
               </Link>
             </>
           )}
         </>
       )}
-      <Link target="_blank" href="https://getalby.com">
+      <Link target="_self" href="https://getalby.com">
         <div className="mt-4 flex items-center text-sm">
           Powered by&nbsp;
           <img title="Alby" src="/app-store/alby/logo.svg" alt="Alby" className="h-8 dark:hidden" />

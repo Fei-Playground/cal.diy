@@ -383,7 +383,7 @@ const AppearanceView = ({
         color="secondary"
         EndIcon="external-link"
         className="mt-6"
-        onClick={() => window.open(`${WEBAPP_URL}/${user.username}/${user.eventTypes[0].title}`, "_blank")}>
+        onClick={() => window.open(`${WEBAPP_URL}/${user.username}/${user.eventTypes[0].title}`, "_self")}>
         Preview
       </Button> */}
 

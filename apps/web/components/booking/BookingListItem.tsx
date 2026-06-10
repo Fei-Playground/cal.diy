@@ -314,7 +314,7 @@ function BookingListItem(booking: BookingItemProps) {
                         <a
                           href={locationToDisplay}
                           onClick={(e) => e.stopPropagation()}
-                          target="_blank"
+                          target="_self"
                           title={locationToDisplay}
                           rel="noreferrer"
                           className="text-sm leading-6 text-blue-600 hover:underline dark:text-blue-400">
@@ -439,7 +439,7 @@ function BookingListItem(booking: BookingItemProps) {
                       <a
                         href={locationToDisplay}
                         onClick={(e) => e.stopPropagation()}
-                        target="_blank"
+                        target="_self"
                         title={locationToDisplay}
                         rel="noreferrer"
                         className="text-sm leading-6 text-blue-600 hover:underline dark:text-blue-400">

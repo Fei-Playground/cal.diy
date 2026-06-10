@@ -48,7 +48,7 @@ export function DynamicLink<T extends { username: string | null }>({
               EndIcon="external-link"
               size="sm"
               href={dynamicLinkOfSelectedUsers}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer">
               Open
             </Button>

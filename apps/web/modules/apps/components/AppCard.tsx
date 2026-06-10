@@ -68,7 +68,7 @@ export function AppCard({ app, credentials, searchText, userAdminTeams }: AppCar
 
     if (isRedirectApp(app.slug)) {
       // For redirect apps, open the external URL directly
-      if (app.url) window.open(app.url, "_blank", "noopener,noreferrer");
+      if (app.url) window.open(app.url, "_self", "noopener,noreferrer");
       return;
     }
     if (isConferencing(app.categories) && !app.concurrentMeetings) {

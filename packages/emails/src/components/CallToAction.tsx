@@ -25,7 +25,7 @@ export const CallToAction = (props: {
   };
 
   const El = href ? "a" : "button";
-  const restProps = href ? { href, target: "_blank" } : { type: "submit" };
+  const restProps = href ? { href, target: "_self" } : { type: "submit" };
 
   return (
     <p

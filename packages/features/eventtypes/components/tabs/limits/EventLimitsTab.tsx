@@ -447,7 +447,7 @@ export const EventLimitsTab = ({ eventType, customClassNames }: EventLimitsTabPr
 
     if (teamId) {
       return (
-        <Link href={`/settings/teams/${teamId}/settings`} target="_blank" rel="noopener noreferrer">
+        <Link href={`/settings/teams/${teamId}/settings`} target="_self" rel="noopener noreferrer">
           {badge}
         </Link>
       );

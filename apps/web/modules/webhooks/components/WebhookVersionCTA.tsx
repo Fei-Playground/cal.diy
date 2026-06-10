@@ -67,7 +67,7 @@ export function WebhookVersionCTA({ formMethods }: { formMethods: UseFormReturn<
                   <Link
                     className="flex text-muted-foreground hover:text-foreground"
                     href={getWebhookVersionDocsUrl(version)}
-                    target="_blank"
+                    target="_self"
                     rel="noopener noreferrer"
                   />
                 }>

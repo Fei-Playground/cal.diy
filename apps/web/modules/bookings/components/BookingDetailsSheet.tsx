@@ -682,7 +682,7 @@ function WhereSection({
           </span>
           <a
             href={locationToDisplay}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
             className="truncate text-blue-600 hover:underline"
           >

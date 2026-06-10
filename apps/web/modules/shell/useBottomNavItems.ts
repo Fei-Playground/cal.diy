@@ -18,7 +18,7 @@ export function useBottomNavItems({ publicPageUrl }: BottomNavItemsProps): Navig
       name: "view_public_page",
       href: publicPageUrl,
       icon: "external-link",
-      target: "__blank",
+      target: "_self",
     },
     {
       name: "copy_public_page_link",

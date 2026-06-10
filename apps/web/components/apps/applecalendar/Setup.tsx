@@ -45,7 +45,7 @@ export default function AppleCalendarSetup() {
               <a
                 className="font-bold hover:underline"
                 href="https://appleid.apple.com/account/manage"
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer">
                 https://appleid.apple.com/account/manage
               </a>

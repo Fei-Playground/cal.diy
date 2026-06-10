@@ -223,7 +223,7 @@ const ChooseEmbedTypesDialogContent = ({
             data-testid={embed.type}
             onClick={() => {
               if (embed.type === "headless") {
-                window.open("https://cal.com/help/routing/headless-routing", "_blank");
+                window.open("https://cal.com/help/routing/headless-routing", "_self");
               } else {
                 gotoState({
                   embedType: embed.type as EmbedType,

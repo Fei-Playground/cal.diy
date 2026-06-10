@@ -142,7 +142,7 @@ export const EventAppsTab = ({
                     {t("locked_by_team_admin")}
                   </Button>
                 ) : (
-                  <Button target="_blank" color="secondary" href="/apps">
+                  <Button target="_self" color="secondary" href="/apps">
                     {t("empty_installed_apps_button")}{" "}
                   </Button>
                 )

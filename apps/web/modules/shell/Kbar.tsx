@@ -430,7 +430,7 @@ function NoResultsFound({ searchQuery }: { searchQuery: string }): JSX.Element {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "Enter") {
-        window.open(helpUrl, "_blank", "noopener,noreferrer");
+        window.open(helpUrl, "_self", "noopener,noreferrer");
       }
     };
 
@@ -445,7 +445,7 @@ function NoResultsFound({ searchQuery }: { searchQuery: string }): JSX.Element {
       <p className="mb-3 text-sm text-subtle">{t("kbar_no_results_found")}</p>
       <a
         href={helpUrl}
-        target="_blank"
+        target="_self"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 text-emphasis text-sm transition hover:text-default">
         <ExternalLinkIcon className="h-4 w-4" />
