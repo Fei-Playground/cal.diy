@@ -6,6 +6,8 @@ Contributions are what make the open source community such an amazing place to l
 
 ## House Rules (for PRs and Issues)
 
+Open an issue before starting larger changes.
+
 ### 👥 Prevent Work Duplication
 
 Before submitting a new issue or PR, check if it already exists in the [Issues](https://github.com/calcom/cal.diy/issues) or [Pull Requests](https://github.com/calcom/cal.diy/pulls).
