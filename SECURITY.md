@@ -1,5 +1,7 @@
 # Security
 
+Report security issues privately to the Playground team.
+
 Contact: [security@cal.com](mailto:security@cal.com)
 
 Based on [https://supabase.com/.well-known/security.txt](https://supabase.com/.well-known/security.txt)
