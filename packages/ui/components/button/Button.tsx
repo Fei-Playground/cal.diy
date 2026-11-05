@@ -72,6 +72,29 @@ export const buttonClasses = cva(
           "duration-100",
         ],
 
+        purple: [
+          // Base colors
+          "bg-purple-800",
+          "text-white",
+          // Hover state
+          "not-disabled:hover:bg-purple-900",
+          // Focus state
+          "focus-visible:outline-none",
+          "focus-visible:ring-0",
+          "focus-visible:shadow-button-solid-brand-focused",
+          // Border
+          "border border-purple-800",
+          // Disabled
+          "disabled:opacity-30",
+          // Shadows and effects
+          "shadow-button-solid-brand-default",
+          "not-disabled:active:shadow-button-solid-brand-active",
+          "not-disabled:hover:shadow-button-solid-brand-hover",
+          "transition-shadow",
+          "transition-transform",
+          "duration-100",
+        ],
+
         secondary: [
           // Base colors and border
           "bg-default",
@@ -163,6 +186,12 @@ export const buttonClasses = cva(
       {
         loading: true,
         color: "primary",
+        className: "opacity-30",
+      },
+      // Purple variants
+      {
+        loading: true,
+        color: "purple",
         className: "opacity-30",
       },
       // Secondary variants
@@ -288,7 +317,7 @@ export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonPr
           <svg
             className={classNames(
               "mx-4 h-5 w-5 animate-spin",
-              color === "primary" ? "text-inverted" : "text-emphasis"
+              color === "primary" || color === "purple" ? "text-inverted" : "text-emphasis"
             )}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -11,7 +11,7 @@ interface AcceptBookingButtonProps {
   isTabRecurring?: boolean;
   isTabUnconfirmed?: boolean;
   size?: "sm" | "base" | "lg";
-  color?: "primary" | "secondary" | "minimal" | "destructive";
+  color?: "primary" | "secondary" | "minimal" | "destructive" | "purple";
   className?: string;
 }
 
@@ -23,7 +23,7 @@ export function AcceptBookingButton({
   isTabRecurring = false,
   isTabUnconfirmed = false,
   size = "base",
-  color = "primary",
+  color = "purple",
   className,
 }: AcceptBookingButtonProps) {
   const { t } = useLocale();
