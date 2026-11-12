@@ -12,7 +12,7 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    color: { control: "select", options: ["primary", "secondary", "minimal", "destructive"] },
+    color: { control: "select", options: ["primary", "secondary", "minimal", "destructive", "purple"] },
     size: { control: "inline-radio", options: ["xs", "sm", "base", "lg"] },
     loading: { control: "boolean" },
     disabled: { control: "boolean" },
@@ -49,7 +49,7 @@ export const Disabled: Story = {
 export const Colors: Story = {
   render: () => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
-      {(["primary", "secondary", "minimal", "destructive"] as const).map((color) => (
+      {(["primary", "secondary", "minimal", "destructive", "purple"] as const).map((color) => (
         <Button key={color} color={color}>
           {color}
         </Button>
