@@ -72,18 +72,19 @@ export const buttonClasses = cva(
           "duration-100",
         ],
 
+        // Purple requested for the accept-booking action; indigo-500 is the palette's nearest match to the requested shade.
         purple: [
           // Base colors
-          "bg-purple-800",
+          "bg-indigo-500",
           "text-white",
           // Hover state
-          "not-disabled:hover:bg-purple-900",
+          "not-disabled:hover:bg-indigo-600",
           // Focus state
           "focus-visible:outline-none",
           "focus-visible:ring-0",
           "focus-visible:shadow-button-solid-brand-focused",
           // Border
-          "border border-purple-800",
+          "border border-indigo-500",
           // Disabled
           "disabled:opacity-30",
           // Shadows and effects
